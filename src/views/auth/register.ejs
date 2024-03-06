@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head') %>
+
+  <body>
+    <nav class="navbar navbar-expand-lg  bg-dark   border-bottom border-body" data-bs-theme="dark">
+
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">MY POSTS</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/auth/login">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/auth/register">Register</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                ACCIONES
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Login</a></li>
+                <li><a class="dropdown-item" href="#">Register</a></li>
+              </ul>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+    </nav>
+    <div class="backgraund">
+      <div class="card mx-auto m-4" style="width: 28rem;">
+        <h3 class="text-center m-4"> Formulario de registro</h3>
+        <div class="card-body  ">
+
+          <form action="/auth/register" method="POST">
+            <div class="form-group">
+              <label for="exampleFormControlInput1" class="form-label">Name</label>
+              <input type="text" class="form-control" id="name" name="name" autofocus value="<%= typeof valores !== 'undefined' ? valores.name.trim() : '' %>">
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlInput1" class="form-label">Lastname</label>
+              <input type="text" class="form-control" id="lastname" name="lastname" value="<%= typeof valores !== 'undefined' ? valores.lastname.trim() : '' %>">
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlInput1" class="form-label">Email</label>
+              <input type="text" class="form-control" id="email" name="email" value="<%= typeof valores !== 'undefined' ? valores.email.trim() : '' %>">
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlInput1" class="form-label">User</label>
+              <input type="text" class="form-control" id="user" name="user" value="<%= typeof valores !== 'undefined' ? valores.user.trim() : '' %>">
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlInput1" class="form-label">Password</label>
+              <input type="password" class="form-control" id="password" name="password" value="<%= typeof valores !== 'undefined' ? valores.password.trim() : '' %>">
+            </div>
+
+            <br>
+            <div class="form-group d-grid gap-2">
+              <button class="btn btn-primary btn-block"> REGISTER </button>
+
+            </div>
+            
+          </form>
+          <br>
+          <% if(typeof validaciones != 'undefined') { %>
+            <% validaciones.forEach((validacion) =>{  %>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              <strong> <%= validacion.msg %></strong> 
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <% }) %>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </body>
+
+</html>
