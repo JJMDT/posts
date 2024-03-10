@@ -1,0 +1,22 @@
+npm init y- para generar package.json
+npm i express express-session ejs mysql express-mysql-session morgan bcryptjs passport passport-local connect-flash express-validator nodemon - D
+
+express ( framework de node)
+ejs ( motor de plantilla )
+express-session ( administra las sesiones de nuestra app.)
+mysql ( modulo para conectarnos a la base de datos )
+express-mysql-session (este modulo nos almacena la sesion en la base de datos )
+morgan (modulo que nos permite mostrar las peticiones http que llegan al servidor)
+bcryptjs ( es para cifrar las contraseñas)
+passport (es un modulo para la autenticar y manejar el proceso de login de un usuario)
+passport-local (complemento para autenticar usuarios con nuestra base de datos)
+connect-flash ( usamos para mostrar mensajes cuando el usuario haga una accion)
+express-validator ( nos permite validar los errores en los datos que nos envia un usuario)
+nodemon - D (modulo para ejecutar el servidor automaticamente)
+
+empezamos a hacer la estructura de nuestra app
+
+carpetas
+SRC
+SRC - > controllers - database - middlewares- model- routes - views -
+
