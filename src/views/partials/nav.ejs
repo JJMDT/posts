@@ -12,7 +12,7 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <% if(user){ %>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/newPost">New post</a>
+              <a class="nav-link active" aria-current="page" href="/admin/newPost">New post</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/allPosts">All post</a>
@@ -20,16 +20,20 @@
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                 aria-expanded="false">
-                ADMIN
+                <!-- < %= user.  **tiene todos los campos del usuario, name,lastname,email,user --> 
+                <%= user.user %>
               </a>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="/profile">Profile</a></li>
-                <li><a class="dropdown-item" href="auth/logout">Logout</a></li>
+                <li><a class="dropdown-item" href="/auth/logout">Logout</a></li>
               </ul>
             </li>
           <% } else {%>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/auth/login">Login</a>
+              <a class="nav-link" href="/allPosts">All post</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " aria-current="page" href="/auth/login">Login</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/auth/register">Register</a>

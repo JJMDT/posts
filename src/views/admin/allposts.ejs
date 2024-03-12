@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head') %>
+
+    <body>
+        <%- include('../partials/nav') %>
+
+            <div class="container p-4">
+                <h2 class="text-center p-4">All Posts from users 😆</h2>
+                <div class="row p-2">
+                    <% data.forEach(post=> { %>
+                        <div class="col-md-4 p-4 mx-auto">
+                            <div class="card text-center">
+                                <a href="/post/<%= post.id_post %>" class="card-link">
+                                    <div class="card-header">
+                                        <h3>
+                                            <%= post.title %>
+                                        </h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <p>
+                                            <%= post.description %>
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="card-footer  ">
+                                    <div class="footer d-flex justify-content-evenly ">
+
+                                        <p>Author: <b>
+                                                <%= post.user %>
+                                            </b> </p>
+                                            <p>Post: #<b>
+                                                <%= post.id_post %>
+                                            </b></p>
+                                        </div>
+                                        <div class="footer d-flex justify-content-evenly ">
+                                            
+                                            <p>Published:
+                                            <%= dateAndTime.format(post.created_at, ' DD/MM/YYYY' ) %>
+                                        </p>
+                                        <p><i class="bi bi-chat-dots"></i> <%= post.commentCount %>
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+
+
+
+
+                            </div>
+                        </div>
+
+                        <% }) %>
+                </div>
+            </div>
+    </body>
+
+</html>

@@ -11,8 +11,38 @@
           <h2 class="text-center m-4">Bienvenido a My Post</h2>
           <div class="card-body text-center ">
             <h4> Aquí eres libre de expresar lo que sientas!😉 </h4>
-            <a href="/allPosts" class="btn btn-primary m-4">POSTS</a>
+            <a href="/allPosts" class="btn btn-outline-danger m-4">READ POSTS</a>
+            <a href="/auth/login" class="btn btn-outline-primary m-4">PUBLISH</a>
           </div>
+        </div>
+      </div>
+      <div class="container p-4">
+        <h2 class="text-center p-4">All Posts from users 😆</h2>
+        <div class="row p-2">
+          <% data.forEach(post=> { %>
+            <div class="col-md-4 p-4 mx-auto">
+              <div class="card text-center">
+                <a href="/post/<%= post.id_post %>" class="link_card">
+                  <div class="card-header">
+                    <h3>
+                      <%= post.title %>
+                    </h3>
+                  </div>
+                  <div class="card-body">
+                    <p>
+                      <%= post.description %>
+                    </p>
+                  </div>
+                  <div class="card-footer">
+                    <p>Autor: <b>
+                        <%= post.name %>
+                      </b></p>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <% }) %>
         </div>
       </div>
   </body>

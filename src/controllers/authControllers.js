@@ -75,7 +75,7 @@ module.exports = {
 
         const result = await pool.query("INSERT INTO users SET ?", [newUser]);
 
-        console.log('Usuario registrado con clave codificada', newUser);
+        console.log('Usuario registrado ', newUser);
         req.flash('success', '¡Registro exitoso! Puedes iniciar sesión ahora.');
         res.redirect("login");
       } catch (error) {

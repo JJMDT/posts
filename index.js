@@ -7,7 +7,7 @@ const flash = require('connect-flash')
 const mysqlStore = require('express-mysql-session')(session)
 const morgan = require('morgan')
 const passport = require('passport')
-
+const dateStyle = require('./src/middlewares/dateTime')
 const {database} = require('./src/database/keys'); 
 const sessionStore = new mysqlStore(database)
 
@@ -37,6 +37,7 @@ app.use(morgan('dev'));
 // configuramos body-parser para recibir los datos que son enviados a una ruta POST
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(bodyParser.json())
+//app.use(dateStyle)
 
 //configuracion de passport
 
@@ -48,6 +49,8 @@ app.use(passport.session())
 app.use((req,res,next) => {
     app.locals.success = req.flash('success');
     app.locals.user = req.user
+  //  const idUser = req.user.id_user
+
     next();
 })
 
@@ -63,10 +66,12 @@ app.use((req, res, next) => {
 const mainRoutes = require('./src/routes/mainRoutes')
 const authRoutes = require('./src/routes/authRoutes')
 const adminRoutes = require('./src/routes/adminRoutes')
+const postRoutes = require('./src/routes/postRoutes')
 
 app.use('/', mainRoutes) //todas las rutas que comiences con /
 app.use('/auth', authRoutes) //todas las rutas que comiencen con auth/
 app.use('/admin', adminRoutes); //todas las rutas que comiencen con admin/
+app.use('/post', postRoutes); //todas las rutas que comiencen con post/
 
 
 // settings server

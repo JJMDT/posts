@@ -1,0 +1,43 @@
+<div class="container col-md-4  ">
+
+    <% if(dataComment.length===0){ %>
+        <div class="row m-4 p-4 text-center">
+            <h3> No comment 😪</h3>
+
+        </div>
+        <% }else { %>
+            <h3>
+                <span class="quantityComments"><%= dataComment.length %></span> Comments
+            </h3>
+
+            <br>
+
+
+            <div class=" ">
+
+                <ul class="list-group ">
+                    <% dataComment.forEach(comment=> { %>
+                        <li class="list-group-item disabled" aria-disabled="true">
+                            <div class="d-flex justify-content-between"> 
+                            <h5 class="user-comment">@<%= comment.user %>
+                            </h5>
+                            <p class="ps-4 date-comment">
+                                <%= dateAndTime.format(comment.created_at, ' DD/MM/YYYY HH:mm' ) %>
+                            </p>
+                        </div>
+                       
+                            <div>
+                                <p class="ps-2 comment">
+                                    <%= comment.comment %>
+                                </p>
+                            </div>
+                            
+                        </li>
+
+                        <% }) %>
+                </ul>
+
+            </div>
+
+            <% } %>
+</div>

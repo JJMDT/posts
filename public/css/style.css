@@ -1,3 +1,80 @@
 .backgraund { 
     background-color: whitesmoke;
 }
+.card-link{
+    list-style: none;
+    color: black;
+    text-decoration: none ;
+    transition: box-shadow 0.3 ease;
+}
+.card-link:hover{
+    opacity: 1;
+    box-shadow: 0px 0px 19px 3px #000000;}
+.card-link:not(:hover){
+   opacity:1;
+}
+/* comentarios  */
+.quantityComments{
+    color: red;
+    font-weight: bold;
+    font-size: 35px;
+}
+.user-comment{
+    color: dodgerblue;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.date-comment{
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+.comment{
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+/* card post */
+.card_title{
+    color: red;
+    font-size: 40px;
+    letter-spacing: 2px;
+
+}
+.card-description {
+    color: black;
+    font-size: 25px;
+    letter-spacing: 1px;
+}
+.card-author-au{
+    color: dodgerblue;
+
+}
+.card-author{
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+
+}
+.card-id{
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-weight: bold;
+   
+
+}
+.card-date{    
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-weight: bold;
+
+}
+.card-icon{
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-weight: bold;
+    color: red;
+
+
+}
