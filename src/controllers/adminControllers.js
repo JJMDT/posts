@@ -19,7 +19,7 @@ module.exports = {
        await pool.query('INSERT INTO posts SET ?', [newPost]);
         console.log('Post creado con exito');
     
-        res.redirect('/allPosts');
+        res.redirect('/profile');
     },
     // post: async (req,res) => {
     //     const idUser = req.user.id_user

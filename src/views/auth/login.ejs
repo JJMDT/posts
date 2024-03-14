@@ -3,37 +3,38 @@
 <%- include('../partials/head') %>
 
   <body>
-    <%- include('../partials/nav') %>
+    <div class="backgraunds">
+      <%- include('../partials/nav') %>
 
-   
-    <div class="backgraund">
-      <div class="card mx-auto m-4" style="width: 28rem;">
-        <h3 class="text-center m-4"> Inicio de sesion</h3>
-        <div class="card-body  ">
 
-          <form action="/auth/login" method="POST">
-            
-            <div class="form-group">
-              <label for="exampleFormControlInput1" class="form-label">User</label>
-              <input type="text" class="form-control" id="user" name="user" autofocus placeholder="User">
-            </div>
-            <div class="form-group">
-              <label for="exampleFormControlInput1" class="form-label">Password</label>
-              <input type="password" class="form-control" id="password" name="password" autofocus
-                placeholder="Password">
-            </div>
+        <div class="card mx-auto m-4" style="width: 28rem;">
+          <h3 class="text-center m-4"> Inicio de sesion</h3>
+          <div class="card-body  ">
 
-            <br>
-            <div class="form-group d-grid gap-2">
-              <button class="btn btn-primary btn-block"> LOGIN </button>
-            </div>
-            <br>
-            <p class="text-center">No tienes cuenta ? haz <a href="/auth/register"> click aqui</a> para registrarte </p>
-          </form>
-       
-        
+            <form action="/auth/login" method="POST">
+
+              <div class="form-group">
+                <label for="exampleFormControlInput1" class="form-label">User</label>
+                <input type="text" class="form-control" id="user" name="user" autofocus placeholder="User">
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlInput1" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password" autofocus
+                  placeholder="Password">
+              </div>
+
+              <br>
+              <div class="form-group d-grid gap-2">
+                <button class="btn btn-primary btn-block"> LOGIN </button>
+              </div>
+              <br>
+              <p class="text-center">No tienes cuenta ? haz <a href="/auth/register"> click aqui</a> para registrarte
+              </p>
+            </form>
+
+
+          </div>
         </div>
-      </div>
     </div>
   </body>
 

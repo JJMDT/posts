@@ -12,24 +12,39 @@
                                 <div class="card-body">
                                     <h3>Hi!, <%= user.name %> 👋🏼</h3> <br>
                                     <h4>- Welcome to your profile 😎 </h4>
-                                    <a href="admin/newPost" class="btn btn-primary m-4">New post</a>
+                                    <a href="admin/newPost" class="btn btn-outline-primary m-4">New post</a>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-8 mx-auto m-4">
-                            <h3 class="text-center">YOUR POSTS</h3>
-                            <% if (data.length === 0) { %>
-                               <div class="row m-4 p-4 text-center">
-                                <h3> No posts to display.</h3>
-                                
-                            </div>
-                            <div class="row  text-center">
-                                <h3>😕</h3>
-
-                            </div>
-                                <% } else { %>
-                                    <br>
+                            <div class="col-md-8 m-4">
+                                <h3>  Your activity recent</h3>
+                                <br>
+                                <div class="row">
+                                   <% if(activity.length === 0){ %>
+                                        <p>No hay actividad</p>
+                                    <% }else{ %>
+                                    <% activity.forEach(act => {  %>
+                                    <li> <a href="post/<%= act.posts %>"">  <%= act.activity_type %> </a>  -  <%= dateAndTime.format(act.activity_date,'DD/MM/YYYY  HH:MM') %> </li>
+                                    <% }) %>
+                                    <% } %>
                                     
+                                </div>
+                            </div>
+                            <% if (data.length===0) { %>
+                                <div class="col-md-8 m-4">
+                                    <h3> No posts to display. 😕</h3>
+
+                                </div>
+                                <div class="col-md-8 m-4">
+                                    <h3><a href="/admin/newPost" class="btn btn-outline-primary"> PUBLISH</a></h3>
+
+                                </div>
+                                <% } else { %>
+                                  
+                                    <br>
+                                    <h3 class="col-md-8 m-4">YOUR POSTS</h3>
+                                   
                                     <table class="table">
                                         <thead>
                                             <tr>
@@ -39,21 +54,29 @@
                                                 <th scope="col">ACTION</th>
                                             </tr>
                                         </thead>
-                                        <% data.forEach(post => { %>
-                                        <tbody>
-                                      <tr>
-                                        <th scope="row">#<%= post.id_post %></th>
-                                        <td><a href="/post/<%= post.id_post %>" class="link_card"><%= post.title %></a></td>
-                                        <td><%= dateAndTime.format(post.created_at, 'DD/MM/YYYY HH:mm:ss' ) %>
-                                        </td>
-                                        <td><a href="/delete:" class="link_card"><i class="bi bi-trash-fill "></i></a>
-                                            <a href="/edit:" class="link_card"><i class="bi bi-pencil-square"></i></a></td>
-                                      </tr>
-                                      
-                                    </tbody>
-                                <% }) %>
-                                  </table>
-                                <% } %>
+                                        <% data.forEach(post=> { %>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">#<%= post.id_post %>
+                                                    </th>
+                                                    <td><a href="/post/<%= post.id_post %>" class="link_card">
+                                                            <%= post.title %>
+                                                        </a></td>
+                                                    <td>
+                                                        <%= dateAndTime.format(post.created_at, 'DD/MM/YYYY HH:mm:ss' )
+                                                            %>
+                                                    </td>
+                                                    <td><a href="/delete:" class="link_card"><i
+                                                                class="bi bi-trash-fill "></i></a>
+                                                        <a href="/edit:" class="link_card"><i
+                                                                class="bi bi-pencil-square"></i></a>
+                                                    </td>
+                                                </tr>
+
+                                            </tbody>
+                                            <% }) %>
+                                    </table>
+                                    <% } %>
                         </div>
                     </div>
                 </div>
