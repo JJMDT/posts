@@ -47,11 +47,16 @@
                            <% if(!user){ %>
                              <button type="button" disabled id="btnComment" class="btn btn-primary" data-bs-toggle="modal"
                                     data-bs-target="#exampleModal" data-bs-whatever="@mdo">Comment</button>
-
+                            
                             <% } %>
                             <% if(user){ %>
                                 <button type="button" id="btnComment" class="btn btn-primary" data-bs-toggle="modal"
                                     data-bs-target="#exampleModal" data-bs-whatever="@mdo">Comment</button>
+                                    
+                            <% if(post.id_user === user.id_user){ %>
+                               <a href="/admin/editPost/<%= post.id_post %>" class="btn btn-outline-secondary">Edit</a>
+                            <% } %>
+
 
                                 <div class="modal fade" id="exampleModal" tabindex="-1"
                                     aria-labelledby="exampleModalLabel" aria-hidden="true" style="display: none;">

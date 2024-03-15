@@ -25,9 +25,9 @@
                                         <p>No hay actividad</p>
                                     <% }else{ %>
                                     <% activity.forEach(act => {  %>
-                                    <li> <a href="post/<%= act.posts %>"">  <%= act.activity_type %> </a>  -  <%= dateAndTime.format(act.activity_date,'DD/MM/YYYY  HH:MM') %> </li>
+                                    <li> <a href="post/<%= act.id_post %>">  <%= act.action %> </a>  -  <%= dateAndTime.format(act.created_at,'DD/MM/YYYY HH:MM:ss') %> </li>
                                     <% }) %>
-                                    <% } %>
+                                    <% } %> 
                                     
                                 </div>
                             </div>
@@ -66,9 +66,9 @@
                                                         <%= dateAndTime.format(post.created_at, 'DD/MM/YYYY HH:mm:ss' )
                                                             %>
                                                     </td>
-                                                    <td><a href="/delete:" class="link_card"><i
+                                                    <td><a href="admin/deletePost/<%= post.id_post %>" class="link_card"><i
                                                                 class="bi bi-trash-fill "></i></a>
-                                                        <a href="/edit:" class="link_card"><i
+                                                        <a href="admin/editPost/<%= post.id_post %>" class="link_card"><i
                                                                 class="bi bi-pencil-square"></i></a>
                                                     </td>
                                                 </tr>

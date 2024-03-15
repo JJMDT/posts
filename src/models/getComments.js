@@ -6,5 +6,9 @@ module.exports = {
         console.log(comments)
         return comments
     },
+    deleteComments: async(postId) => {
+        const result = await pool.query('delete from comments where id_post = ?',[postId])
+        return result
+    }
     
 }
