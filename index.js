@@ -1,5 +1,6 @@
 const express = require ("express");
 const session = require('express-session')
+const csession = require('cookie-session')
 const path = require('path')
 const bodyParser = require('body-parser')
 const { body, validationResult } = require('express-validator');
@@ -22,13 +23,21 @@ app.set('views',path.resolve(__dirname,'./src/views'))
 
 
 //middlewares
-app.use(express.static(path.join(__dirname, 'public')));
+//configurado de forma local
+//app.use(express.static(path.join(__dirname, 'public')));
+// configurado para vercel
+app.use(express.static(path.resolve(__dirname,'public')))
 
 app.use(session({
     secret:'post',
+
     resave:false,
     saveUninitialized:false,
-    store: sessionStore
+    store: sessionStore,
+    rolling: true,
+    cookie: {
+        maxAge: 600000 // tiempo que dura la sesion en milisegundos
+    },
     
 }))
 
