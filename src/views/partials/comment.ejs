@@ -1,4 +1,4 @@
-<div class="container col-md-4  ">
+<div class="container col-md-6  ">
 
     <% if(dataComment.length===0){ %>
         <div class="row m-4 p-4 text-center">
@@ -13,10 +13,10 @@
             <br>
 
 
-            <div class=" ">
+            <div class="container-comment ">
 
-                <ul class="list-group ">
-                    <% dataComment.forEach(comment=> { %>
+                <% dataComment.forEach(comment=> { %>
+                    <ul class="list-group ">
                         <li class="list-group-item disabled" aria-disabled="true">
                             <div class="d-flex justify-content-between"> 
                             <h5 class="user-comment">@<%= comment.user %>
@@ -34,8 +34,8 @@
                             
                         </li>
 
+                    </ul>
                         <% }) %>
-                </ul>
 
             </div>
 

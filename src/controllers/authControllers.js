@@ -50,6 +50,7 @@ module.exports = {
           return res.render("auth/register", {
             validaciones: errores.array(),
             valores,
+
           }); // Puedes redirigir a una página de error de registro
         }else if (existingEmail && existingEmail.length > 0) {
                 errores.errors.push({
@@ -73,10 +74,10 @@ module.exports = {
           password: newPassword,
         };
 
-        const result = await pool.query("INSERT INTO users SET ?", [newUser]);
+        await pool.query("INSERT INTO users SET ?", [newUser]);
 
         console.log('Usuario registrado ', newUser);
-        req.flash('success', '¡Registro exitoso! Puedes iniciar sesión ahora.');
+       // req.flash('success', '¡Registro exitoso! Puedes iniciar sesión ahora.');
         res.redirect("login");
       } catch (error) {
         console.log(error);

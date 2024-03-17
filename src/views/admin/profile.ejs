@@ -17,7 +17,7 @@
                             </div>
                         </div>
                         <div class="col-md-8 mx-auto m-4">
-                            <div class="col-md-8 m-4">
+                            <div class="col-md-10 m-4">
                                 <h3>  Your activity recent</h3>
                                 <br>
                                 <div class="row">
@@ -25,7 +25,7 @@
                                         <p>No hay actividad</p>
                                     <% }else{ %>
                                     <% activity.forEach(act => {  %>
-                                    <li> <a href="post/<%= act.id_post %>">  <%= act.action %> </a>  -  <%= dateAndTime.format(act.created_at,'DD/MM/YYYY HH:MM:ss') %> </li>
+                                    <li>  <%= act.action %><a href="post/<%= act.id_post %>" class="link_activity">  "<%= act.title %>"</a>  -  <%= dateAndTime.format(act.created_at,'DD/MM/YYYY HH:MM:ss') %> </li>
                                     <% }) %>
                                     <% } %> 
                                     
@@ -33,7 +33,7 @@
                             </div>
                             <% if (data.length===0) { %>
                                 <div class="col-md-8 m-4">
-                                    <h3> No posts to display. 😕</h3>
+                                    <h3 class="msg_activity"> No posts to display. 😕</h3>
 
                                 </div>
                                 <div class="col-md-8 m-4">
@@ -59,17 +59,17 @@
                                                 <tr>
                                                     <th scope="row">#<%= post.id_post %>
                                                     </th>
-                                                    <td><a href="/post/<%= post.id_post %>" class="link_card">
+                                                    <td><a href="/post/<%= post.id_post %>" class="link_post">
                                                             <%= post.title %>
                                                         </a></td>
                                                     <td>
                                                         <%= dateAndTime.format(post.created_at, 'DD/MM/YYYY HH:mm:ss' )
                                                             %>
                                                     </td>
-                                                    <td><a href="admin/deletePost/<%= post.id_post %>" class="link_card"><i
+                                                    <td><a href="admin/deletePost/<%= post.id_post %>" class="link_icon_delete"><i
                                                                 class="bi bi-trash-fill "></i></a>
-                                                        <a href="admin/editPost/<%= post.id_post %>" class="link_card"><i
-                                                                class="bi bi-pencil-square"></i></a>
+                                                        <a href="admin/editPost/<%= post.id_post %>" class="link_icon_edit"><i
+                                                                class="bi bi-pencil-fill"></i></a>
                                                     </td>
                                                 </tr>
 
@@ -95,6 +95,7 @@
                         </div>
                     </div>
                     <% } %>
+                    <%- include('../partials/footer') %>
 
     </body>
 

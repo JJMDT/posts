@@ -10,7 +10,7 @@ module.exports = {
         
     // },
     activityMostRecent: async(idUser) =>{
-        const result = await pool.query('select * from activity_log where id_user = ? limit 5',[idUser])
+        const result = await pool.query('select act.*, p.title from activity_log as act left join posts as p on p.id_post = act.id_post where act.id_user = ? order by created_at desc limit 5  ',[idUser])
         return result
     },
     registerActivity: async (idUser,postId,action)=>{

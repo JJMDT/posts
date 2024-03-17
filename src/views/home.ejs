@@ -21,14 +21,14 @@
         <div class="row p-2">
           <% randomPost.slice(0,6).forEach(post=> { %>
             <div class="col-md-4 p-4 mx-auto">
-              <div class="card text-center">
+              <div class="card card-all text-center">
                 <a href="/post/<%= post.id_post %>" class="card-link">
                   <div class="card-header">
                     <h3 class="card_title_home">
                       <%= post.title %>
                     </h3>
                   </div>
-                  <div class="card-body">
+                  <div class="card-body-all">
                     <p class="card-description-home">
                       <% const sentence=post.description.split(' ');
                               const shortSentence = sentence.slice(0,10).join(" ")
@@ -73,6 +73,8 @@
       </div>
     </div>
   </div>
+  <%- include('./partials/footer') %>
+
   </body>
 
 </html>

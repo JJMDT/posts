@@ -44,58 +44,62 @@
                             </div>
 
                             <br>
-                           <% if(!user){ %>
-                             <button type="button" disabled id="btnComment" class="btn btn-primary" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal" data-bs-whatever="@mdo">Comment</button>
-                            
-                            <% } %>
-                            <% if(user){ %>
-                                <button type="button" id="btnComment" class="btn btn-primary" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal" data-bs-whatever="@mdo">Comment</button>
-                                    
-                            <% if(post.id_user === user.id_user){ %>
-                               <a href="/admin/editPost/<%= post.id_post %>" class="btn btn-outline-secondary">Edit</a>
-                            <% } %>
+                            <% if(!user){ %>
+                                <button type="button" disabled id="btnComment" class="btn btn-primary"
+                                    data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                    data-bs-whatever="@mdo">Comment</button>
 
-
-                                <div class="modal fade" id="exampleModal" tabindex="-1"
-                                    aria-labelledby="exampleModalLabel" aria-hidden="true" style="display: none;">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="exampleModalLabel">New message </h1>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form action="/post/<%= post.id_post %>/add" method="post"
-                                                    enctype="application/x-www-form-urlencoded">
-                                                    <div class="mb-3">
-
-                                                        <input type="text" class="form-control" disabled
-                                                            value="<%= user.user %>">
-                                                        <input type="hidden" id="user" name="user"
-                                                            value="<%= user.id_user %>">
-
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="message-text"
-                                                            class="col-form-label">Message:</label>
-                                                        <textarea class="form-control" id="comment" name="comment"
-                                                            rows="5"></textarea>
-                                                    </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Close</button>
-                                                <button type="submit" onclick="alert('mensaje enviado')"
-                                                    class="btn btn-primary">Send message</button>
-                                            </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
                                 <% } %>
+                                    <% if(user){ %>
+                                        <button type="button" id="btnComment" class="btn btn-primary"
+                                            data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                            data-bs-whatever="@mdo">Comment</button>
+
+                                        <!-- < % if(post.id_user === user.id_user){ %>
+                               <a href="/admin/editPost/< %= post.id_post %>" class="btn btn-outline-secondary">Edit</a>
+                            < % } %> -->
+
+
+                                        <div class="modal fade" id="exampleModal" tabindex="-1"
+                                            aria-labelledby="exampleModalLabel" aria-hidden="true"
+                                            style="display: none;">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h1 class="modal-title fs-5" id="exampleModalLabel">New message
+                                                        </h1>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form action="/post/<%= post.id_post %>/add" method="post"
+                                                            enctype="application/x-www-form-urlencoded">
+                                                            <div class="mb-3">
+
+                                                                <input type="text" class="form-control" disabled
+                                                                    value="<%= user.user %>">
+                                                                <input type="hidden" id="user" name="user"
+                                                                    value="<%= user.id_user %>">
+
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <label for="message-text"
+                                                                    class="col-form-label">Message:</label>
+                                                                <textarea class="form-control" id="comment"
+                                                                    name="comment" rows="5"></textarea>
+                                                            </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Close</button>
+                                                        <button type="submit" onclick="alert('mensaje enviado')"
+                                                            class="btn btn-primary">Send message</button>
+                                                    </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <% } %>
 
 
                     </div>
@@ -106,6 +110,8 @@
 
             <%- include('../partials/comment') %>
                 <script src="/js/formComment.js"></script>
+                <%- include('../partials/footer') %>
+
     </body>
 
 </html>
