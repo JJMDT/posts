@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head') %>
+
+  <body>
+    
+    <div class="backgraunds">
+      <%- include('../partials/nav') %>
+      <div class="card mx-auto m-4" style="width: 28rem;">
+        <h3 class="text-center m-4"> Formulario de registro</h3>
+        <div class="card-body  ">
+
+          <form action="/auth/register" method="POST">
+            <div class="form-group">
+              <label for="exampleFormControlInput1" class="form-label">Name</label>
+              <input type="text" class="form-control" id="name" name="name" autofocus value="<%= typeof valores !== 'undefined' ? valores.name.trim() : '' %>">
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlInput1" class="form-label">Lastname</label>
+              <input type="text" class="form-control" id="lastname" name="lastname" value="<%= typeof valores !== 'undefined' ? valores.lastname.trim() : '' %>">
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlInput1" class="form-label">Email</label>
+              <input type="text" class="form-control" id="email" name="email" value="<%= typeof valores !== 'undefined' ? valores.email.trim() : '' %>">
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlInput1" class="form-label">User</label>
+              <input type="text" class="form-control" id="user" name="user" value="<%= typeof valores !== 'undefined' ? valores.user.trim() : '' %>">
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlInput1" class="form-label">Password</label>
+              <input type="password" class="form-control" id="password" name="password" value="<%= typeof valores !== 'undefined' ? valores.password.trim() : '' %>">
+            </div>
+
+            <br>
+            <div class="form-group d-grid gap-2">
+              <button class="btn btn-primary btn-block"> REGISTER </button>
+              <br>
+              <p class="text-center"> Ya tienes cuenta ? haz <a href="/auth/login"> click aqui</a> para logearte </p>
+            </div>
+            
+          </form>
+          <br>
+          <% if(typeof validaciones != 'undefined') { %>
+            <% validaciones.forEach((validacion) =>{  %>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              <strong> <%= validacion.msg %></strong> 
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <% }) %>
+          <% } %>
+      
+
+        </div>
+      </div>
+    </div>
+    <%- include('../partials/footer') %>
+
+  </body>
+
+</html>

@@ -1,0 +1,253 @@
+.backgraund {
+  background-color: whitesmoke;
+}
+.card-link {
+  list-style: none;
+  color: black;
+  text-decoration: none;
+  transition: box-shadow 0.3s ease-out;
+}
+.card-all:hover {
+  opacity: 1;
+  box-shadow: 6px 8px 6px 1px rgba(0, 0, 0, 0.75);
+  animation: animationHover 2s ease-out 0s 1 normal forwards;
+
+}
+@keyframes animationHover {
+	0%,
+	100% {
+		transform: rotate(0deg);
+		transform-origin: 50% 0;
+	}
+
+	10% {
+		transform: rotate(2deg);
+	}
+
+	20%,
+	40%,
+	60% {
+		transform: rotate(-4deg);
+	}
+
+	30%,
+	50%,
+	70% {
+		transform: rotate(4deg);
+	}
+
+	80% {
+		transform: rotate(-2deg);
+	}
+
+	90% {
+		transform: rotate(2deg);
+	}
+}
+.card-link:not(:hover) {
+  opacity: 0.5;
+}
+/* comentarios  */
+.quantityComments {
+  color: red;
+  font-weight: bold;
+  font-size: 35px;
+}
+.user-comment {
+  color: dodgerblue;
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.date-comment {
+  font-size: 20px;
+  letter-spacing: 1px;
+  font-weight: 500;
+  
+}
+.comment {
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-align: start;
+}
+
+.list-group{
+  padding: 10px;
+}
+
+/* card post home  */
+.card_title_home {
+  color: red;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+.card-description-home {
+  color: black;
+  font-size: 18px;
+}
+.card-author-au-home {
+  color: dodgerblue;
+}
+.card-author-home {
+  font-size: 12px;
+  font-weight: 500;
+}
+/* card post individual  */
+.card_title {
+  color: red;
+  font-size: 40px;
+  letter-spacing: 2px;
+}
+.card-description {
+  color: black;
+  font-size: 25px;
+  letter-spacing: 1px;
+}
+.card-author-au {
+  color: dodgerblue;
+}
+.card-author {
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.card-id {
+  font-size: 20px;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+.card-date {
+  font-size: 20px;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+.card-icon {
+  font-size: 20px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  color: red;
+}
+
+/* profile activity */
+li {
+  list-style: none;
+}
+.link_activity {
+  text-decoration: none;
+  color: dodgerblue;
+  font-size: 18px;
+  font-weight: 500;
+}
+.link_activity:hover {
+  color: palevioletred;
+}
+.link_post {
+  text-decoration: none;
+  color: dodgerblue;
+  font-size: 18px;
+  font-weight: 500;
+}
+.link_post:hover {
+  color: red;
+}
+.link_icon_delete {
+  color: lightcoral;
+  font-size: 20px;
+}
+.link_icon_delete:hover {
+  color: red;
+}
+.link_icon_edit {
+  margin-left: 10px;
+  color: darkgray;
+  font-size: 20px;
+}
+.link_icon_edit:hover {
+  color: grey;
+}
+.card-body-all {
+  height: 120px;
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ /* footer  */
+
+.footer_ {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f8f9fa; 
+  padding: 20px 0; 
+} 
+
+.divider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 1px;
+  background-color: #ccc; /* Color de la línea decorativa */
+  margin: 20px auto; /* Espacio entre la línea y el contenido y centrado horizontalmente */
+  width: 80%; /* Ancho de la línea */
+}
+.copy {
+  font-size: 20px;
+
+}
+.footer_ .row{
+  align-items: center;
+}
+.icono1, .icono2, .icono3 {
+  /* Estilos de los iconos, por ejemplo: */
+  width: 40px;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease;
+
+  /* Ajusta otros estilos según tus necesidades */
+}
+
+.bi-linkedin:hover {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #0e76a8;
+  transform: scale(1.5);
+  
+}
+.bi-envelope-at:hover {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: red;
+  transform: scale(1.5);
+  
+}
+.bi-whatsapp:hover {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #25d366;
+  transform: scale(1.5);
+  
+}
+.icons-cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.icons {
+  display: flex;
+  flex-direction: row;
+}
+.icons a{
+  text-decoration: none;
+  color: gray;
+  
+}
