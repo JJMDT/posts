@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head') %>
+
+    <body>
+        <%- include('../partials/nav') %>
+            <% if(user) {%>
+                <div class="container p-4">
+                    <div class="row">
+                        <div class="col-md-8 mx-auto">
+                            <div class="card text-center">
+                                <div class="card-body">
+                                    <h3>Hi!, <%= user.name %> 👋🏼</h3> <br>
+                                    <h4>- Welcome to your profile 😎 </h4>
+                                    <a href="admin/newPost" class="btn btn-outline-primary m-4">New post</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8 mx-auto m-4">
+                            <div class="col-md-10 m-4">
+                                <h3>  Your activity recent</h3>
+                                <br>
+                                <div class="row">
+                                   <% if(activity.length === 0){ %>
+                                        <p>No hay actividad</p>
+                                    <% }else{ %>
+                                    <% activity.forEach(act => {  %>
+                                    <li>  <%= act.action %><a href="post/<%= act.id_post %>" class="link_activity">  "<%= act.title %>"</a>  -  <%= dateAndTime.format(act.created_at,'DD/MM/YYYY HH:MM:ss') %> </li>
+                                    <% }) %>
+                                    <% } %> 
+                                    
+                                </div>
+                            </div>
+                            <% if (data.length===0) { %>
+                                <div class="col-md-8 m-4">
+                                    <h3 class="msg_activity"> No posts to display. 😕</h3>
+
+                                </div>
+                                <div class="col-md-8 m-4">
+                                    <h3><a href="/admin/newPost" class="btn btn-outline-primary"> PUBLISH</a></h3>
+
+                                </div>
+                                <% } else { %>
+                                  
+                                    <br>
+                                    <h3 class="col-md-8 m-4">YOUR POSTS</h3>
+                                   
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">POST</th>
+                                                <th scope="col">TITLE</th>
+                                                <th scope="col">PUBLISHED</th>
+                                                <th scope="col">ACTION</th>
+                                            </tr>
+                                        </thead>
+                                        <% data.forEach(post=> { %>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">#<%= post.id_post %>
+                                                    </th>
+                                                    <td><a href="/post/<%= post.id_post %>" class="link_post">
+                                                            <%= post.title %>
+                                                        </a></td>
+                                                    <td>
+                                                        <%= dateAndTime.format(post.created_at, 'DD/MM/YYYY HH:mm:ss' )
+                                                            %>
+                                                    </td>
+                                                    <td><a href="admin/deletePost/<%= post.id_post %>" class="link_icon_delete"><i
+                                                                class="bi bi-trash-fill "></i></a>
+                                                        <a href="admin/editPost/<%= post.id_post %>" class="link_icon_edit"><i
+                                                                class="bi bi-pencil-fill"></i></a>
+                                                    </td>
+                                                </tr>
+
+                                            </tbody>
+                                            <% }) %>
+                                    </table>
+                                    <% } %>
+                        </div>
+                    </div>
+                </div>
+                <% } else {%>
+                    <div class="container p-4">
+                        <div class="row">
+                            <div class="col-md-4 mx-auto">
+                                <div class="card text-center">
+                                    <div class="card-body">
+                                        <h3>Hi! <br> - Welcome My Post</h3>
+                                        <a href="auth/login" class="btn btn-primary m-4">Login</a>
+                                        <a href="auth/register" class="btn btn-primary m-4">Register</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <% } %>
+                    <%- include('../partials/footer') %>
+
+    </body>
+
+</html>

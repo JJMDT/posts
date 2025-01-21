@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head') %>
+
+  <body>
+    <%- include('../partials/nav') %>
+
+      <div class="container p-4 ">
+        <h2 class="text-center p-4">Post Most Recents 😆</h2>
+        <div class="row p-2">
+          <% mostRecent.slice(0,3).forEach(post=> { %>
+            <div class="col-md-4 p-4 mx-auto">
+              <div class="card card-all text-center">
+                <a href="/post/<%= post.id_post %>" class="card-link">
+                  <div class="card-header">
+                    <h3 class="card_title_home">
+                      <%= post.title %>
+                    </h3>
+                  </div>
+                  <div class="card-body-all">
+                    <p class="card-description-home">
+                      <% const sentence=post.description.split(' ');
+                                          const shortSentence = sentence.slice(0,10).join(" ")
+                                          const moreText = sentence.length > 10 ? "..." : ""
+                                          
+                                          %>
+                                          <%= shortSentence + moreText %>
+                                              
+                                      </p>
+                  </div>
+                                    
+                   <div class="card-footer  ">
+                       <div class="footer d-flex justify-content-evenly ">
+            
+                        <p class="card-author-home">Author: <b>
+                                              <%= post.user %>
+                                          </b> </p>
+                                          <p class="card-author-home"> Post: #<b>
+                                              <%= post.id_post %>
+                                          </b></p>
+                                      </div>
+                                      <div class="footer d-flex justify-content-evenly ">
+                                          
+                                          <p class="card-author-home">Published:
+                                          <%= dateAndTime.format(post.created_at, ' DD/MM/YYYY' ) %>
+                    </p>
+                    <p class="card-author-home"><i class="bi bi-chat-dots"></i>
+                      <%= post.commentCount %>
+                    </p>
+                  </div>
+              </div>
+              </a>
+
+
+
+
+            </div>
+        </div>
+
+
+        <% }) %>
+      </div>
+      </div>
+      <h2 class="text-center p-4">All Posts from users 😆</h2>
+      <div class="container">
+
+
+        <div class="row p-2">
+          <% data.forEach(post=> { %>
+            <div class="col-md-4 p-4 mx-auto">
+              <div class=" card card-all text-center">
+                <a href="/post/<%= post.id_post %>" class="card-link">
+                  <div class="card-header">
+                    <h3 class="card_title_home">
+                      <%= post.title %>
+                    </h3>
+                  </div>
+                  <div class="card-body-all">
+                    <p class="card-description-home">
+                      <% const sentence=post.description.split(' ');
+                                          const shortSentence = sentence.slice(0,10).join(" ")
+                                          const moreText = sentence.length > 10 ? "..." : ""
+                                          
+                                          %>
+                                          <%= shortSentence + moreText %>
+                                              
+                                      </p>
+                                  </div>
+                                  
+                                  <div class="card-footer  ">
+                                  <div class="footer d-flex justify-content-evenly ">
+            
+                                      <p class="card-author-home">Author: <b>
+                                              <%= post.user %>
+                                          </b> </p>
+                                          <p class="card-author-home"> Post: #<b>
+                                              <%= post.id_post %>
+                                          </b></p>
+                                      </div>
+                                      <div class="footer d-flex justify-content-evenly ">
+                                          
+                                          <p class="card-author-home">Published:
+                                          <%= dateAndTime.format(post.created_at, ' DD/MM/YYYY' ) %>
+                    </p>
+                    <p class="card-author-home"><i class="bi bi-chat-dots"></i>
+                      <%= post.commentCount %>
+                    </p>
+                  </div>
+              </div>
+              </a>
+
+
+
+
+            </div>
+        </div>
+
+
+        <% }) %>
+      </div>
+      </div>
+      </div>
+      <%- include('../partials/footer') %>
+  </body>
+
+
+</html>
